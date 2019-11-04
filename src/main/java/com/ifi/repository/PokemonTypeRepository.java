@@ -28,7 +28,7 @@ public class PokemonTypeRepository {
     public PokemonType findPokemonById(int id) {
         System.out.println("Loading Pokemon information for Pokemon id " + id);
 
-        // TODO
+        // DONE
         var pokeType = new PokemonType();
         return this.pokemons.get(id-1);
     }
@@ -36,7 +36,7 @@ public class PokemonTypeRepository {
     public PokemonType findPokemonByName(String name) {
         System.out.println("Loading Pokemon information for Pokemon name " + name);
 
-        // TODO
+        // DONE
         for(PokemonType p: pokemons){
             if(p.getName().equals(name)){
                 return p;
@@ -47,7 +47,7 @@ public class PokemonTypeRepository {
     }
 
     public List<PokemonType> findAllPokemon() {
-        // TODO
+        // DONE
         return this.pokemons;
     }
 }
