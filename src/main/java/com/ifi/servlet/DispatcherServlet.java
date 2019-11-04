@@ -1,5 +1,6 @@
 package com.ifi.servlet;
 
+import com.ifi.annotation.Controller;
 import com.ifi.controller.HelloController;
 
 import javax.servlet.ServletConfig;
@@ -30,9 +31,17 @@ public class DispatcherServlet extends HttpServlet {
         this.registerController(HelloController.class);
     }
 
-    protected void registerController(Class controllerClass){
+    protected void registerController(Class controllerClass) throws IllegalArgumentException{
         System.out.println("Analysing class " + controllerClass.getName());
         // TODO
+        if(controllerClass.getAnnotation(Controller.class)==null){
+            throw new IllegalArgumentException("This class isn't annotated with @Controller");
+        }else{
+            Method[] methodsArray = controllerClass.getDeclaredMethods();
+            for(Method method: methodsArray){
+                registerMethod(method);
+            }
+        }
     }
 
     protected void registerMethod(Method method) {

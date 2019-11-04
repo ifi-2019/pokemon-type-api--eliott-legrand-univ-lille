@@ -1,5 +1,7 @@
 package com.ifi.servlet;
 
+import com.ifi.annotation.Controller;
+import com.ifi.annotation.RequestMapping;
 import com.ifi.controller.HelloController;
 import org.junit.jupiter.api.Test;
 
@@ -38,7 +40,7 @@ class DispatcherServletTest {
     }
 
     @Test
-    void registerController_shouldRegisterCorrectyMethods(){
+    void registerController_shouldRegisterCorrectMethods(){
         var servlet = new DispatcherServlet();
 
         servlet.registerController(SomeControllerClass.class);
